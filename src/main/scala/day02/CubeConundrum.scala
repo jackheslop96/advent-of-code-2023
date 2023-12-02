@@ -27,9 +27,7 @@ class CubeConundrum {
 
   def power(game: String): Int = game match {
     case gamePattern(_, handfuls) =>
-      handfuls
-        .split("; ")
-        .flatMap(_.split(", "))
+      getAll(handfuls)
         .map {
           case ballPattern(numberOfBalls, colour) => colour -> numberOfBalls.toInt
         }
