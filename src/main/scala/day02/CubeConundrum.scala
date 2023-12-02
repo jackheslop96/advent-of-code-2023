@@ -39,13 +39,12 @@ class CubeConundrum {
         .product
   }
 
-  def runPart1(file: String): Int = {
-    val lines: Seq[String] = FileReader.fileReader(file)
-    lines.map(score).sum
-  }
+  def runPart1(file: String): Int = run(file)(score)
 
-  def runPart2(file: String): Int = {
+  def runPart2(file: String): Int = run(file)(power)
+
+  private def run(file: String)(f: String => Int): Int = {
     val lines: Seq[String] = FileReader.fileReader(file)
-    lines.map(power).sum
+    lines.map(f).sum
   }
 }
