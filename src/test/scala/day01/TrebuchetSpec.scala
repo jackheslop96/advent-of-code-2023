@@ -1,3 +1,5 @@
+package day01
+
 class TrebuchetSpec extends munit.FunSuite {
 
   test("1abc2 returns 12") {

@@ -1,13 +1,18 @@
+package day01
+
 import utils.FileReader
 
-class Trebuchet() {
+import scala.annotation.tailrec
+
+class Trebuchet {
 
   def recoverCalibrationValue(input: String): Int = {
 
+    @tailrec
     def rec(chars: List[Char], acc: Seq[String]): Seq[String] = {
       lazy val tail = chars.tail
       chars match {
-        case Nil => acc
+        case Nil                                  => acc
         case 'o' :: 'n' :: 'e' :: _               => rec(tail, acc :+ "1")
         case 't' :: 'w' :: 'o' :: _               => rec(tail, acc :+ "2")
         case 't' :: 'h' :: 'r' :: 'e' :: 'e' :: _ => rec(tail, acc :+ "3")
